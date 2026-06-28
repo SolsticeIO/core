@@ -1,26 +1,33 @@
 <div align="center">
 
-  <h1>ArchiveTune Core</h1>
+  <h1>Solstice Core</h1>
 
   <p align="center">
     <strong>InnerTube API client for YouTube Music.</strong>
     <br />
-    <em>The core library powering <a href="https://github.com/ArchiveTuneApp/ArchiveTune">ArchiveTune</a> — a high-performance, privacy-focused YouTube Music client for Android.</em>
+    <em>The core library powering <a href="https://github.com/SolsticeIO/Solstice">Solstice</a> — a high-performance, privacy-focused YouTube Music client for Android.</em>
   </p>
 
   <p align="center">
-    <img src="https://img.shields.io/github/v/release/ArchiveTuneApp/core?style=for-the-badge&color=6366f1&labelColor=1e1e2e&logo=github" alt="Latest Version" />
-    <img src="https://img.shields.io/github/license/ArchiveTuneApp/core?style=for-the-badge&color=6366f1&labelColor=1e1e2e" alt="License" />
-    <img src="https://img.shields.io/badge/Language-Kotlin-7f52ff?style=for-the-badge&logo=kotlin&color=6366f1&labelColor=1e1e2e" alt="Kotlin" />
-    <img src="https://img.shields.io/badge/Runtime-JVM-6366f1?style=for-the-badge&logo=openjdk&labelColor=1e1e2e" alt="JVM" />
-    <img src="https://img.shields.io/github/stars/ArchiveTuneApp/core?style=for-the-badge&color=6366f1&labelColor=1e1e2e&logo=github" alt="Stars" />
+    <strong>Solstice (2026)</strong><br>
+    &copy; Stark &mdash; <a href="https://github.com/urstark">github.com/urstark</a><br><br>
+    <strong>Based on ArchiveTune</strong><br>
+    &copy; Rukamori &mdash; <a href="https://github.com/rukamori">github.com/rukamori</a>
   </p>
 
-  <a href="https://star-history.com/#ArchiveTuneApp/core&ArchiveTuneApp/ArchiveTune&Date">
+  <p align="center">
+    <img src="https://img.shields.io/github/v/release/SolsticeIO/core?style=for-the-badge&color=6366f1&labelColor=1e1e2e&logo=github" alt="Latest Version" />
+    <img src="https://img.shields.io/github/license/SolsticeIO/core?style=for-the-badge&color=6366f1&labelColor=1e1e2e" alt="License" />
+    <img src="https://img.shields.io/badge/Language-Kotlin-7f52ff?style=for-the-badge&logo=kotlin&color=6366f1&labelColor=1e1e2e" alt="Kotlin" />
+    <img src="https://img.shields.io/badge/Runtime-JVM-6366f1?style=for-the-badge&logo=openjdk&labelColor=1e1e2e" alt="JVM" />
+    <img src="https://img.shields.io/github/stars/SolsticeIO/core?style=for-the-badge&color=6366f1&labelColor=1e1e2e&logo=github" alt="Stars" />
+  </p>
+
+  <a href="https://star-history.com/#SolsticeIO/core&SolsticeIO/Solstice&Date">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ArchiveTuneApp/core,ArchiveTuneApp/ArchiveTune&type=Date&theme=dark" />
-      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ArchiveTuneApp/core,ArchiveTuneApp/ArchiveTune&type=Date" />
-      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ArchiveTuneApp/core,ArchiveTuneApp/ArchiveTune&type=Date" width="600" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=SolsticeIO/core,SolsticeIO/Solstice&type=Date&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=SolsticeIO/core,SolsticeIO/Solstice&type=Date" />
+      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=SolsticeIO/core,SolsticeIO/Solstice&type=Date" width="600" />
     </picture>
   </a>
 
@@ -28,7 +35,7 @@
 
 ## Overview
 
-This is the standalone InnerTube API core extracted from [ArchiveTune](https://github.com/ArchiveTuneApp/ArchiveTune). It provides a complete Ktor-based HTTP client for interacting with YouTube Music's InnerTube API, including request signing, response parsing, proxy rotation, and playback authentication.
+This is the standalone InnerTube API core extracted from [Solstice](https://github.com/SolsticeIO/Solstice). It provides a complete Ktor-based HTTP client for interacting with YouTube Music's InnerTube API, including request signing, response parsing, proxy rotation, and playback authentication.
 
 ## Features
 
@@ -42,11 +49,11 @@ This is the standalone InnerTube API core extracted from [ArchiveTune](https://g
 
 ## Architecture
 
-The diagram below shows how this library fits into the ArchiveTune app and how data flows through the layers.
+The diagram below shows how this library fits into the Solstice app and how data flows through the layers.
 
 ```mermaid
 flowchart TB
-    subgraph Android["ArchiveTune App (Android)"]
+    subgraph Android["Solstice App (Android)"]
         UI["Jetpack Compose UI<br/>Screens & Components"]
         VM["ViewModels<br/>State holders"]
         SVC["Services<br/>MusicService, Player"]
@@ -99,7 +106,7 @@ flowchart TB
 ```
 
 **Data flow:**
-1. User interacts with ArchiveTune's Compose UI
+1. User interacts with Solstice's Compose UI
 2. ViewModels & Services call `YouTube.*` methods
 3. `YouTube` delegates to `InnerTube` via the `MusicBackend` interface
 4. `InnerTube` builds signed requests, sends them via Ktor to YouTube Music's InnerTube API
@@ -110,7 +117,7 @@ flowchart TB
 ## Package Structure
 
 ```
-moe.rukamori.archivetune.innertube/
+urstark.solstice.innertube/
 ├── InnerTube.kt              — Core HTTP client
 ├── YouTube.kt                — High-level API singleton (main entry point)
 ├── MusicBackend.kt           — API contract interface
